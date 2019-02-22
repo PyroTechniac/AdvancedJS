@@ -4,7 +4,8 @@
     "author": "Gryffon Bellish <owenbellish@gmail.com>",
     "main": "./index.js",
     "scripts": {
-        "test": "node ./test/main.js"
+        "test": "node ./test/main.js",
+        "docs": "node ./docs/build.js"
     },
     "description": "A package that extends basic JavaScript Objects",
     "repository": {
