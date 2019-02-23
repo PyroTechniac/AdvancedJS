@@ -3,8 +3,9 @@ const fs = require('fs');
 const nextra = require('fs-nextra');
 const path = require('path');
 const pkgdata = require('../package.json');
+const Admap = require('./Admap');
 /**
- * A Advanced Set structure with more utility methods
+ * An Advanced Set structure with more utility methods
  * @extends {Set}
  */
 class Adset extends Set {
@@ -27,7 +28,7 @@ class Adset extends Set {
          * @type {Boolean}
          * @private
          */
-        Object.defineProperty(this, 'sealed', { value: false, writable: true, configurable: false });
+        Object.defineProperty(this, '_sealed', { value: false, writable: true, configurable: false });
     }
 
     /**
@@ -52,7 +53,7 @@ class Adset extends Set {
      * Creates a new Map object containing the type of value(s) as the key, and an object ordering them
      * by insertion with the key as the number, and the value as an array with the number in the original
      * set, and the actual value
-     * @returns {Map<String, Object<String, Array>>} The Map mentioned above
+     * @returns {Admap<String, Object<String, Array>>} The Map mentioned above
      */
     parse() {
         const newArr = Array.from(this).map((element, index) => {
@@ -89,13 +90,15 @@ class Adset extends Set {
         const arrayIterator = ['Arrays', arrayObj];
         const objectIterator = ['Objects', objectObj];
         const mainIterator = [stringIterator, numberIterator, arrayIterator, objectIterator];
-        return new Map(mainIterator);
+        const map = new Admap(mainIterator);
+        if (this._sealed) map.seal();
+        return map;
     }
 
     /**
-     * Creates a new Map object containing the type of value(s) as the key, and an array of every value
+     * Creates a new {@link Admap} object containing the type of value(s) as the key, and an array of every value
      * as the value
-     * @returns {Map<String, Array<*>>} A map with the typeof value as the key, and an array of values as the value
+     * @returns {Admap<String, Array<*>>} A map with the typeof value as the key, and an array of values as the value
      */
     access() {
         const stringArray = new Array();
@@ -115,7 +118,9 @@ class Adset extends Set {
         const arrayIterator = ['Arrays', arrayArray];
         const objectIterator = ['Objects', objectArray];
         const mainIterator = [stringIterator, numberIterator, arrayIterator, objectIterator];
-        return new Map(mainIterator);
+        const map = new Admap(mainIterator);
+        if (this._sealed) map.seal();
+        return map;
     }
 
     /**
@@ -128,13 +133,13 @@ class Adset extends Set {
     }
 
     add(val) {
-        if (this.sealed) throw new Err('The Adset is sealed, and cannot be modified', 'AdsetSealedError');
+        if (this._sealed) throw new Err('The Adset is sealed, and cannot be modified', 'AdsetSealedError');
         this._array = null;
         return super.add(val);
     }
 
     delete(val) {
-        if (this.sealed) throw new Err('The Adset is sealed, and cannot be modified', 'AdsetSealedError');
+        if (this._sealed) throw new Err('The Adset is sealed, and cannot be modified', 'AdsetSealedError');
         this._array = null;
         return super.delete(val);
     }
@@ -148,7 +153,7 @@ class Adset extends Set {
         for (const val of this) {
             if (val instanceof Array) results.add(val);
         }
-        if (this.sealed) results.seal();
+        if (this._sealed) results.seal();
         return results;
     }
 
@@ -158,7 +163,7 @@ class Adset extends Set {
      * @returns {Adset<*>} The old set, can be discarded if not needed anymore
      */
     clear() {
-        if (this.sealed) throw new Err('The Adset is sealed, and cannot be modified', 'AdsetSealedError');
+        if (this._sealed) throw new Err('The Adset is sealed, and cannot be modified', 'AdsetSealedError');
         const set = new this.constructor(this);
         super.clear();
         return set;
@@ -205,7 +210,7 @@ class Adset extends Set {
         for (const set of Adsets) {
             for (const val of set) newSet.add(val);
         }
-        if (this.sealed) newSet.seal();
+        if (this._sealed) newSet.seal();
         return newSet;
     }
 
@@ -218,7 +223,7 @@ class Adset extends Set {
         for (const val of this) {
             if (val.constructor === String) results.add(val);
         }
-        if (this.sealed) results.seal();
+        if (this._sealed) results.seal();
         return results;
     }
 
@@ -231,7 +236,7 @@ class Adset extends Set {
         for (const val of this) {
             if (val instanceof Object && val.constructor === Object) results.add(val);
         }
-        if (this.sealed) results.seal();
+        if (this._sealed) results.seal();
         return results;
     }
 
@@ -244,7 +249,7 @@ class Adset extends Set {
         for (const val of this) {
             if (typeof val === 'number') results.add(val);
         }
-        if (this.sealed) results.seal();
+        if (this._sealed) results.seal();
         return results;
     }
 
@@ -256,7 +261,7 @@ class Adset extends Set {
      * @returns {Adset<*>} The set after the function was ran
      */
     each(fn, thisArg) {
-        if (this.sealed) throw new Err('The Adset is sealed, and cannot be modified', 'AdsetSealedError');
+        if (this._sealed) throw new Err('The Adset is sealed, and cannot be modified', 'AdsetSealedError');
         this.forEach(fn, thisArg);
         return this;
     }
@@ -289,7 +294,7 @@ class Adset extends Set {
         for (const val of this) {
             if (fn(val, val, this)) results.add(val);
         }
-        if (this.sealed) results.seal();
+        if (this._sealed) results.seal();
         return results;
     }
 
@@ -314,7 +319,7 @@ class Adset extends Set {
      */
     clone() {
         const results = new this.constructor(this);
-        if (this.sealed) results.seal();
+        if (this._sealed) results.seal();
         return results;
     }
 
@@ -355,7 +360,7 @@ class Adset extends Set {
      * @returns {Adset<*>} The Adset, after being sealed
      */
     seal() {
-        this.sealed = true;
+        this._sealed = true;
         return this;
     }
 
@@ -364,7 +369,7 @@ class Adset extends Set {
      * @returns {Adset<*>} The Adset, after being unsealed
      */
     break() {
-        this.sealed = false;
+        this._sealed = false;
         return this;
     }
 }

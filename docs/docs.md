@@ -1,8 +1,11 @@
 ## Classes
 
 <dl>
+<dt><a href="#Admap">Admap</a> ⇐ <code>Map</code></dt>
+<dd><p>An Advanced Map structure with more utility methods</p>
+</dd>
 <dt><a href="#Adset">Adset</a> ⇐ <code>Set</code></dt>
-<dd><p>A Advanced Set structure with more utility methods</p>
+<dd><p>An Advanced Set structure with more utility methods</p>
 </dd>
 <dt><a href="#CustomError">CustomError</a> ⇐ <code>Error</code></dt>
 <dd><p>A custom error, with a providable name to make it unique</p>
@@ -17,10 +20,47 @@
 </dd>
 </dl>
 
+<a name="Admap"></a>
+
+## Admap ⇐ <code>Map</code>
+An Advanced Map structure with more utility methods
+
+**Kind**: global class  
+**Extends**: <code>Map</code>  
+
+* [Admap](#Admap) ⇐ <code>Map</code>
+    * [new Admap([iterable])](#new_Admap_new)
+    * [.seal()](#Admap+seal) ⇒ <code>Admap.&lt;\*, \*&gt;</code>
+    * [.break()](#Admap+break) ⇒ <code>Admap.&lt;\*&gt;</code>
+
+<a name="new_Admap_new"></a>
+
+### new Admap([iterable])
+Initializes an Admap
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| [iterable] | <code>Iterable.&lt;\*, \*&gt;</code> | The iterable to initialize the Admap with |
+
+<a name="Admap+seal"></a>
+
+### admap.seal() ⇒ <code>Admap.&lt;\*, \*&gt;</code>
+Seals an Admap, preventing further modification in any way until the [break](#Admap+break) method is called
+
+**Kind**: instance method of [<code>Admap</code>](#Admap)  
+**Returns**: <code>Admap.&lt;\*, \*&gt;</code> - The sealed Admap  
+<a name="Admap+break"></a>
+
+### admap.break() ⇒ <code>Admap.&lt;\*&gt;</code>
+Breaks a seal, allowing the Admap to be modified again, does nothing if the Admap wasn't sealed
+
+**Kind**: instance method of [<code>Admap</code>](#Admap)  
+**Returns**: <code>Admap.&lt;\*&gt;</code> - The Admap, after being unsealed  
 <a name="Adset"></a>
 
 ## Adset ⇐ <code>Set</code>
-A Advanced Set structure with more utility methods
+An Advanced Set structure with more utility methods
 
 **Kind**: global class  
 **Extends**: <code>Set</code>  
@@ -28,8 +68,8 @@ A Advanced Set structure with more utility methods
 * [Adset](#Adset) ⇐ <code>Set</code>
     * [new Adset([iterator])](#new_Adset_new)
     * [.store()](#Adset+store) ⇒ <code>Object</code>
-    * [.parse()](#Adset+parse) ⇒ <code>Map.&lt;String, Object.&lt;String, Array&gt;&gt;</code>
-    * [.access()](#Adset+access) ⇒ <code>Map.&lt;String, Array.&lt;\*&gt;&gt;</code>
+    * [.parse()](#Adset+parse) ⇒ <code>Admap.&lt;String, Object.&lt;String, Array&gt;&gt;</code>
+    * [.access()](#Adset+access) ⇒ <code>Admap.&lt;String, Array.&lt;\*&gt;&gt;</code>
     * [.array()](#Adset+array) ⇒ <code>Array.&lt;\*&gt;</code>
     * [.arrays()](#Adset+arrays) ⇒ <code>Adset.&lt;Array&gt;</code>
     * [.clear()](#Adset+clear) ⇒ <code>Adset.&lt;\*&gt;</code>
@@ -68,18 +108,18 @@ Stores the data in the set, while calling the `access()` method. This means that
 **Returns**: <code>Object</code> - The JSON Object that was written to the file  
 <a name="Adset+parse"></a>
 
-### adset.parse() ⇒ <code>Map.&lt;String, Object.&lt;String, Array&gt;&gt;</code>
+### adset.parse() ⇒ <code>Admap.&lt;String, Object.&lt;String, Array&gt;&gt;</code>
 Creates a new Map object containing the type of value(s) as the key, and an object ordering themby insertion with the key as the number, and the value as an array with the number in the originalset, and the actual value
 
 **Kind**: instance method of [<code>Adset</code>](#Adset)  
-**Returns**: <code>Map.&lt;String, Object.&lt;String, Array&gt;&gt;</code> - The Map mentioned above  
+**Returns**: <code>Admap.&lt;String, Object.&lt;String, Array&gt;&gt;</code> - The Map mentioned above  
 <a name="Adset+access"></a>
 
-### adset.access() ⇒ <code>Map.&lt;String, Array.&lt;\*&gt;&gt;</code>
-Creates a new Map object containing the type of value(s) as the key, and an array of every valueas the value
+### adset.access() ⇒ <code>Admap.&lt;String, Array.&lt;\*&gt;&gt;</code>
+Creates a new [Admap](#Admap) object containing the type of value(s) as the key, and an array of every valueas the value
 
 **Kind**: instance method of [<code>Adset</code>](#Adset)  
-**Returns**: <code>Map.&lt;String, Array.&lt;\*&gt;&gt;</code> - A map with the typeof value as the key, and an array of values as the value  
+**Returns**: <code>Admap.&lt;String, Array.&lt;\*&gt;&gt;</code> - A map with the typeof value as the key, and an array of values as the value  
 <a name="Adset+array"></a>
 
 ### adset.array() ⇒ <code>Array.&lt;\*&gt;</code>
