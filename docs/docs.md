@@ -15,8 +15,8 @@
 ## Typedefs
 
 <dl>
-<dt><a href="#GetOptions">GetOptions</a> : <code>Object</code></dt>
-<dd><p>Options for the <code>get()</code> method</p>
+<dt><a href="#AdsetGetOptions">AdsetGetOptions</a> : <code>Object</code></dt>
+<dd><p>Options for an Adset&#39;s <code>get()</code> method</p>
 </dd>
 </dl>
 
@@ -299,7 +299,7 @@ Gets a value from the set, can be loose `==` or strict `===`
 
 | Param | Type | Description |
 | --- | --- | --- |
-| options | [<code>GetOptions</code>](#GetOptions) | The options to use for `get()` |
+| options | <code>GetOptions</code> | The options to use for `get()` |
 
 <a name="Adset+seal"></a>
 
@@ -333,10 +333,10 @@ Creates a new Error, usually to be used with [`throw`](https://developer.mozilla
 | message | <code>String</code> |  | The Error Message |
 | [name] | <code>String</code> | <code></code> | The name of the error, defaults to `AdvancedJSError` |
 
-<a name="GetOptions"></a>
+<a name="AdsetGetOptions"></a>
 
-## GetOptions : <code>Object</code>
-Options for the `get()` method
+## AdsetGetOptions : <code>Object</code>
+Options for an Adset's `get()` method
 
 **Kind**: global typedef  
 **Properties**

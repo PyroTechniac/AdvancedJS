@@ -374,8 +374,8 @@ class Adset extends Set {
     }
 }
 /**
- * Options for the `get()` method
- * @typedef {Object} GetOptions
+ * Options for an Adset's `get()` method
+ * @typedef {Object} AdsetGetOptions
  * @property {*} value The value to search for
  * @property {String} [mode=strict] The mode to search, either `loose (==)` or `strict (===)`
  */
