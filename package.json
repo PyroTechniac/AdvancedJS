@@ -7,6 +7,7 @@
         "test": "node ./test/main.js",
         "docs": "node ./docs/build.js"
     },
+    "types": "./index.d.ts",
     "description": "A package that extends basic JavaScript Objects",
     "repository": {
         "type": "git",
