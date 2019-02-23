@@ -32,6 +32,7 @@ An Advanced Map structure with more utility methods
     * [new Admap([iterable])](#new_Admap_new)
     * [.seal()](#Admap+seal) ⇒ <code>Admap.&lt;\*, \*&gt;</code>
     * [.break()](#Admap+break) ⇒ <code>Admap.&lt;\*&gt;</code>
+    * [.each(fn, [thisArg])](#Admap+each) ⇒ <code>Admap.&lt;\*&gt;</code>
 
 <a name="new_Admap_new"></a>
 
@@ -57,6 +58,19 @@ Breaks a seal, allowing the Admap to be modified again, does nothing if the Adma
 
 **Kind**: instance method of [<code>Admap</code>](#Admap)  
 **Returns**: <code>Admap.&lt;\*&gt;</code> - The Admap, after being unsealed  
+<a name="Admap+each"></a>
+
+### admap.each(fn, [thisArg]) ⇒ <code>Admap.&lt;\*&gt;</code>
+Exactly the same as [`Map.forEach()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/forEach) butreturns the Admap instead of undefined
+
+**Kind**: instance method of [<code>Admap</code>](#Admap)  
+**Returns**: <code>Admap.&lt;\*&gt;</code> - The set after the function was ran  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| fn | <code>function</code> | The function to run |
+| [thisArg] | <code>\*</code> | The argument to use as `this` |
+
 <a name="Adset"></a>
 
 ## Adset ⇐ <code>Set</code>
