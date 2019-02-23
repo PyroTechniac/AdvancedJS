@@ -2,6 +2,7 @@ const Err = require('./Adset');
 const Adset = require('./Adset');
 /**
  * A Basicset structure with the same utility methods as {@link Adset}, but can only store Strings and Numbers
+ * @extends {Adset}
  */
 class Basicset extends Adset {
     constructor(iterable) {

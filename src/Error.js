@@ -6,7 +6,7 @@ class CustomError extends Error {
     /**
      * Creates a new Error, usually to be used with [`throw`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw)
      * @param {String} message The Error Message
-     * @param {String} [name] The name of the error, defaults to `AdvancedJSError`
+     * @param {String} [name=AdvancedJSError] The name of the error, defaults to `AdvancedJSError`
      */
     constructor(message, name = null) {
         super();
