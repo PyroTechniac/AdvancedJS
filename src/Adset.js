@@ -334,14 +334,18 @@ class Adset extends Set {
     }
 
     /**
-     * Returns a value from the first object in the Adset where the key is a key in the object
-     * @param {*} key The key to grab the value from
-     * @returns {*} The value that the first object held the key for
+     * Gets a value from the set, can be loose `==` or strict `===`
+     * @param {GetOptions} options The options to use for `get()`
+     * @returns {*} The found value
      */
-    get(key) {
-        const objs = this.objects();
-        for (const obj of objs) {
-            if (Object.keys(obj).includes(`${key}`)) return obj[`${key}`];
+    get(options = {}) {
+        if (!options.value) throw new Err('Get options require a value', 'AdsetGetError');
+        if (!options.mode) options.mode = 'strict';
+        const modes = ['strict', 'loose'];
+        if (!modes.includes(options.mode)) throw new Err(`Get mode requires either strict or loose, found ${options.mode}`, 'AdsetGetError');
+        for (const val of this) {
+            if (val === options.value && options.mode === 'strict') return val;
+            if (val == options.value && options.mode === 'loose') return val;
         }
         return undefined;
     }
@@ -364,5 +368,11 @@ class Adset extends Set {
         return this;
     }
 }
+/**
+ * Options for the `get()` method
+ * @typedef {Object} GetOptions
+ * @property {*} value The value to search for
+ * @property {String} [mode=strict] The mode to search, either `loose (==)` or `strict (===)`
+ */
 
 module.exports = Adset;

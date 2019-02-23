@@ -5,7 +5,15 @@
 <dd><p>A Advanced Set structure with more utility methods</p>
 </dd>
 <dt><a href="#CustomError">CustomError</a> ⇐ <code>Error</code></dt>
-<dd><p>A custom error, with a providable name to customize it</p>
+<dd><p>A custom error, with a providable name to make it unique</p>
+</dd>
+</dl>
+
+## Typedefs
+
+<dl>
+<dt><a href="#GetOptions">GetOptions</a> : <code>Object</code></dt>
+<dd><p>Options for the <code>get()</code> method</p>
 </dd>
 </dl>
 
@@ -37,7 +45,7 @@ A Advanced Set structure with more utility methods
     * [.map(fn, [thisArg])](#Adset+map) ⇒ <code>Array.&lt;\*&gt;</code>
     * [.clone()](#Adset+clone) ⇒ [<code>Adset</code>](#Adset)
     * [.random([amount])](#Adset+random) ⇒ <code>\*</code> \| <code>Array.&lt;\*&gt;</code>
-    * [.get(key)](#Adset+get) ⇒ <code>\*</code>
+    * [.get(options)](#Adset+get) ⇒ <code>\*</code>
     * [.seal()](#Adset+seal) ⇒ <code>Adset.&lt;\*&gt;</code>
     * [.break()](#Adset+break) ⇒ <code>Adset.&lt;\*&gt;</code>
 
@@ -54,27 +62,21 @@ Initializes a new Adset
 <a name="Adset+store"></a>
 
 ### adset.store() ⇒ <code>Object</code>
-Stores the data in the set, while calling the `access()` method. This means that the data should **not** be
-sealed
-<warn> This writes to a JSON file, and should not be used often, as JSON files are prone to corruption when written
-and read from repeatedly</warn>
+Stores the data in the set, while calling the `access()` method. This means that the data should **not** besealed<warn> This writes to a JSON file, and should not be used often, as JSON files are prone to corruption when writtenand read from repeatedly</warn>
 
 **Kind**: instance method of [<code>Adset</code>](#Adset)  
 **Returns**: <code>Object</code> - The JSON Object that was written to the file  
 <a name="Adset+parse"></a>
 
 ### adset.parse() ⇒ <code>Map.&lt;String, Object.&lt;String, Array&gt;&gt;</code>
-Creates a new Map object containing the type of value(s) as the key, and an object ordering them
-by insertion with the key as the number, and the value as an array with the number in the original
-set, and the actual value
+Creates a new Map object containing the type of value(s) as the key, and an object ordering themby insertion with the key as the number, and the value as an array with the number in the originalset, and the actual value
 
 **Kind**: instance method of [<code>Adset</code>](#Adset)  
 **Returns**: <code>Map.&lt;String, Object.&lt;String, Array&gt;&gt;</code> - The Map mentioned above  
 <a name="Adset+access"></a>
 
 ### adset.access() ⇒ <code>Map.&lt;String, Array.&lt;\*&gt;&gt;</code>
-Creates a new Map object containing the type of value(s) as the key, and an array of every value
-as the value
+Creates a new Map object containing the type of value(s) as the key, and an array of every valueas the value
 
 **Kind**: instance method of [<code>Adset</code>](#Adset)  
 **Returns**: <code>Map.&lt;String, Array.&lt;\*&gt;&gt;</code> - A map with the typeof value as the key, and an array of values as the value  
@@ -95,8 +97,7 @@ Retrieves all the arrays in the set
 <a name="Adset+clear"></a>
 
 ### adset.clear() ⇒ <code>Adset.&lt;\*&gt;</code>
-Exactly the same as [`Set.clear()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/clear) but
-returns the old Adset instead of undefined
+Exactly the same as [`Set.clear()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/clear) butreturns the old Adset instead of undefined
 
 **Kind**: instance method of [<code>Adset</code>](#Adset)  
 **Returns**: <code>Adset.&lt;\*&gt;</code> - The old set, can be discarded if not needed anymore  
@@ -106,8 +107,7 @@ returns the old Adset instead of undefined
 Obtains the first value(s) in the Adset
 
 **Kind**: instance method of [<code>Adset</code>](#Adset)  
-**Returns**: <code>\*</code> \| <code>Array.&lt;\*&gt;</code> - A single value if no amount is provided, or an array of values, starting from
-the end if the amount is negative  
+**Returns**: <code>\*</code> \| <code>Array.&lt;\*&gt;</code> - A single value if no amount is provided, or an array of values, starting fromthe end if the amount is negative  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -119,8 +119,7 @@ the end if the amount is negative
 Obtains the last value(s) in the Adset. This relies on [array](#Adset+array)
 
 **Kind**: instance method of [<code>Adset</code>](#Adset)  
-**Returns**: <code>\*</code> \| <code>Array.&lt;\*&gt;</code> - A single value if no amount is provided, or an array of values, starting from
-the beginning if the amount is negative  
+**Returns**: <code>\*</code> \| <code>Array.&lt;\*&gt;</code> - A single value if no amount is provided, or an array of values, starting fromthe beginning if the amount is negative  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -165,8 +164,7 @@ Retrieves all the numbers in the set
 <a name="Adset+each"></a>
 
 ### adset.each(fn, [thisArg]) ⇒ <code>Adset.&lt;\*&gt;</code>
-Exactly the same as [`Set.forEach()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/forEach) but
-returns the Adset instead of undefined
+Exactly the same as [`Set.forEach()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/forEach) butreturns the Adset instead of undefined
 
 **Kind**: instance method of [<code>Adset</code>](#Adset)  
 **Returns**: <code>Adset.&lt;\*&gt;</code> - The set after the function was ran  
@@ -179,8 +177,7 @@ returns the Adset instead of undefined
 <a name="Adset+find"></a>
 
 ### adset.find(fn, [thisArg]) ⇒ <code>\*</code>
-Searches for a single value where a given function returns truthy, similar to
-[Array.find()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find)
+Searches for a single value where a given function returns truthy, similar to[Array.find()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find)
 
 **Kind**: instance method of [<code>Adset</code>](#Adset)  
 **Returns**: <code>\*</code> - The argument found, undefined if nothing returned truthy  
@@ -193,8 +190,7 @@ Searches for a single value where a given function returns truthy, similar to
 <a name="Adset+filter"></a>
 
 ### adset.filter(fn, [thisArg]) ⇒ <code>Adset.&lt;\*&gt;</code>
-Exactly the same as [`Array.filter()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
-but returns an Adset instead of an Array
+Exactly the same as [`Array.filter()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)but returns an Adset instead of an Array
 
 **Kind**: instance method of [<code>Adset</code>](#Adset)  
 **Returns**: <code>Adset.&lt;\*&gt;</code> - The adset after the filter was ran  
@@ -241,15 +237,15 @@ Obtains unique random value(s) from the Adset, this relies on [array](#Adset+arr
 
 <a name="Adset+get"></a>
 
-### adset.get(key) ⇒ <code>\*</code>
-Returns a value from the first object in the Adset where the key is a key in the object
+### adset.get(options) ⇒ <code>\*</code>
+Gets a value from the set, can be loose `==` or strict `===`
 
 **Kind**: instance method of [<code>Adset</code>](#Adset)  
-**Returns**: <code>\*</code> - The value that the first object held the key for  
+**Returns**: <code>\*</code> - The found value  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| key | <code>\*</code> | The key to grab the value from |
+| options | [<code>GetOptions</code>](#GetOptions) | The options to use for `get()` |
 
 <a name="Adset+seal"></a>
 
@@ -268,7 +264,7 @@ Breaks a seal, allowing the Adset to be modified again, does nothing if the Adse
 <a name="CustomError"></a>
 
 ## CustomError ⇐ <code>Error</code>
-A custom error, with a providable name to customize it
+A custom error, with a providable name to make it unique
 
 **Kind**: global class  
 **Extends**: <code>Error</code>  
@@ -282,4 +278,17 @@ Creates a new Error, usually to be used with [`throw`](https://developer.mozilla
 | --- | --- | --- | --- |
 | message | <code>String</code> |  | The Error Message |
 | [name] | <code>String</code> | <code></code> | The name of the error, defaults to `AdvancedJSError` |
+
+<a name="GetOptions"></a>
+
+## GetOptions : <code>Object</code>
+Options for the `get()` method
+
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| value | <code>\*</code> |  | The value to search for |
+| [mode] | <code>String</code> | <code>strict</code> | The mode to search, either `loose (==)` or `strict (===)` |
 
