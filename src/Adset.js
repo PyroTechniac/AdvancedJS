@@ -286,7 +286,7 @@ class Adset extends Set {
      * but returns an Adset instead of an Array
      * @param {Function} fn The function to execute (should return boolean)
      * @param {*} [thisArg] Argument to use as `this`
-     * @returns {Adset<*>} The adset after the filter was ran
+     * @returns {Adset<*>} The Adset after the filter was ran
      */
     filter(fn, thisArg) {
         if (typeof thisArg !== 'undefined') fn = fn.bind(thisArg);

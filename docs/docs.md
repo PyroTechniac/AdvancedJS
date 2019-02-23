@@ -7,6 +7,9 @@
 <dt><a href="#Adset">Adset</a> ⇐ <code>Set</code></dt>
 <dd><p>An Advanced Set structure with more utility methods</p>
 </dd>
+<dt><a href="#Basicmap">Basicmap</a> ⇐ <code><a href="#Admap">Admap</a></code></dt>
+<dd><p>A Basicmap structure with the same utility as <a href="#Admap">Admap</a>, but can only have Strings and Numbers as keys</p>
+</dd>
 <dt><a href="#CustomError">CustomError</a> ⇐ <code>Error</code></dt>
 <dd><p>A custom error, with a providable name to make it unique</p>
 </dd>
@@ -77,7 +80,8 @@ Breaks a seal, allowing the Admap to be modified again, does nothing if the Adma
 <a name="Admap+each"></a>
 
 ### admap.each(fn, [thisArg]) ⇒ <code>Admap.&lt;\*, \*&gt;</code>
-Exactly the same as [`Map.forEach()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/forEach) butreturns the Admap instead of undefined
+Exactly the same as [`Map.forEach()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/forEach) but
+returns the Admap instead of undefined
 
 **Kind**: instance method of [<code>Admap</code>](#Admap)  
 **Returns**: <code>Admap.&lt;\*, \*&gt;</code> - The set after the function was ran  
@@ -132,21 +136,27 @@ Initializes a new Adset
 <a name="Adset+store"></a>
 
 ### adset.store() ⇒ <code>Object</code>
-Stores the data in the set, while calling the `access()` method. This means that the data should **not** besealed<warn> This writes to a JSON file, and should not be used often, as JSON files are prone to corruption when writtenand read from repeatedly</warn>
+Stores the data in the set, while calling the `access()` method. This means that the data should **not** be
+sealed
+<warn> This writes to a JSON file, and should not be used often, as JSON files are prone to corruption when written
+and read from repeatedly</warn>
 
 **Kind**: instance method of [<code>Adset</code>](#Adset)  
 **Returns**: <code>Object</code> - The JSON Object that was written to the file  
 <a name="Adset+parse"></a>
 
 ### adset.parse() ⇒ <code>Admap.&lt;String, Object.&lt;String, Array&gt;&gt;</code>
-Creates a new Map object containing the type of value(s) as the key, and an object ordering themby insertion with the key as the number, and the value as an array with the number in the originalset, and the actual value
+Creates a new Map object containing the type of value(s) as the key, and an object ordering them
+by insertion with the key as the number, and the value as an array with the number in the original
+set, and the actual value
 
 **Kind**: instance method of [<code>Adset</code>](#Adset)  
 **Returns**: <code>Admap.&lt;String, Object.&lt;String, Array&gt;&gt;</code> - The Map mentioned above  
 <a name="Adset+access"></a>
 
 ### adset.access() ⇒ <code>Admap.&lt;String, Array.&lt;\*&gt;&gt;</code>
-Creates a new [Admap](#Admap) object containing the type of value(s) as the key, and an array of every valueas the value
+Creates a new [Admap](#Admap) object containing the type of value(s) as the key, and an array of every value
+as the value
 
 **Kind**: instance method of [<code>Adset</code>](#Adset)  
 **Returns**: <code>Admap.&lt;String, Array.&lt;\*&gt;&gt;</code> - A map with the typeof value as the key, and an array of values as the value  
@@ -167,7 +177,8 @@ Retrieves all the arrays in the set
 <a name="Adset+clear"></a>
 
 ### adset.clear() ⇒ <code>Adset.&lt;\*&gt;</code>
-Exactly the same as [`Set.clear()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/clear) butreturns the old Adset instead of undefined
+Exactly the same as [`Set.clear()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/clear) but
+returns the old Adset instead of undefined
 
 **Kind**: instance method of [<code>Adset</code>](#Adset)  
 **Returns**: <code>Adset.&lt;\*&gt;</code> - The old set, can be discarded if not needed anymore  
@@ -177,7 +188,8 @@ Exactly the same as [`Set.clear()`](https://developer.mozilla.org/en-US/docs/Web
 Obtains the first value(s) in the Adset
 
 **Kind**: instance method of [<code>Adset</code>](#Adset)  
-**Returns**: <code>\*</code> \| <code>Array.&lt;\*&gt;</code> - A single value if no amount is provided, or an array of values, starting fromthe end if the amount is negative  
+**Returns**: <code>\*</code> \| <code>Array.&lt;\*&gt;</code> - A single value if no amount is provided, or an array of values, starting from
+the end if the amount is negative  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -189,7 +201,8 @@ Obtains the first value(s) in the Adset
 Obtains the last value(s) in the Adset. This relies on [array](#Adset+array)
 
 **Kind**: instance method of [<code>Adset</code>](#Adset)  
-**Returns**: <code>\*</code> \| <code>Array.&lt;\*&gt;</code> - A single value if no amount is provided, or an array of values, starting fromthe beginning if the amount is negative  
+**Returns**: <code>\*</code> \| <code>Array.&lt;\*&gt;</code> - A single value if no amount is provided, or an array of values, starting from
+the beginning if the amount is negative  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -234,7 +247,8 @@ Retrieves all the numbers in the set
 <a name="Adset+each"></a>
 
 ### adset.each(fn, [thisArg]) ⇒ <code>Adset.&lt;\*&gt;</code>
-Exactly the same as [`Set.forEach()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/forEach) butreturns the Adset instead of undefined
+Exactly the same as [`Set.forEach()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/forEach) but
+returns the Adset instead of undefined
 
 **Kind**: instance method of [<code>Adset</code>](#Adset)  
 **Returns**: <code>Adset.&lt;\*&gt;</code> - The set after the function was ran  
@@ -247,7 +261,8 @@ Exactly the same as [`Set.forEach()`](https://developer.mozilla.org/en-US/docs/W
 <a name="Adset+find"></a>
 
 ### adset.find(fn, [thisArg]) ⇒ <code>\*</code>
-Searches for a single value where a given function returns truthy, similar to[Array.find()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find)
+Searches for a single value where a given function returns truthy, similar to
+[Array.find()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find)
 
 **Kind**: instance method of [<code>Adset</code>](#Adset)  
 **Returns**: <code>\*</code> - The argument found, undefined if nothing returned truthy  
@@ -260,10 +275,11 @@ Searches for a single value where a given function returns truthy, similar to[A
 <a name="Adset+filter"></a>
 
 ### adset.filter(fn, [thisArg]) ⇒ <code>Adset.&lt;\*&gt;</code>
-Exactly the same as [`Array.filter()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)but returns an Adset instead of an Array
+Exactly the same as [`Array.filter()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
+but returns an Adset instead of an Array
 
 **Kind**: instance method of [<code>Adset</code>](#Adset)  
-**Returns**: <code>Adset.&lt;\*&gt;</code> - The adset after the filter was ran  
+**Returns**: <code>Adset.&lt;\*&gt;</code> - The Adset after the filter was ran  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -331,6 +347,63 @@ Breaks a seal, allowing the Adset to be modified again, does nothing if the Adse
 
 **Kind**: instance method of [<code>Adset</code>](#Adset)  
 **Returns**: <code>Adset.&lt;\*&gt;</code> - The Adset, after being unsealed  
+<a name="Basicmap"></a>
+
+## Basicmap ⇐ [<code>Admap</code>](#Admap)
+A Basicmap structure with the same utility as [Admap](#Admap), but can only have Strings and Numbers as keys
+
+**Kind**: global class  
+**Extends**: [<code>Admap</code>](#Admap)  
+
+* [Basicmap](#Basicmap) ⇐ [<code>Admap</code>](#Admap)
+    * [.keyArray()](#Admap+keyArray) ⇒ <code>Array.&lt;\*&gt;</code>
+    * [.array()](#Admap+array) ⇒ <code>Array.&lt;\*&gt;</code>
+    * [.seal()](#Admap+seal) ⇒ <code>Admap.&lt;\*, \*&gt;</code>
+    * [.break()](#Admap+break) ⇒ <code>Admap.&lt;\*, \*&gt;</code>
+    * [.each(fn, [thisArg])](#Admap+each) ⇒ <code>Admap.&lt;\*, \*&gt;</code>
+
+<a name="Admap+keyArray"></a>
+
+### basicmap.keyArray() ⇒ <code>Array.&lt;\*&gt;</code>
+Returns an ordered array of all the keys in this Admap
+
+**Kind**: instance method of [<code>Basicmap</code>](#Basicmap)  
+**Returns**: <code>Array.&lt;\*&gt;</code> - An array of the keys  
+<a name="Admap+array"></a>
+
+### basicmap.array() ⇒ <code>Array.&lt;\*&gt;</code>
+Returns an ordered array of all the values in this Admap
+
+**Kind**: instance method of [<code>Basicmap</code>](#Basicmap)  
+**Returns**: <code>Array.&lt;\*&gt;</code> - An array of the values  
+<a name="Admap+seal"></a>
+
+### basicmap.seal() ⇒ <code>Admap.&lt;\*, \*&gt;</code>
+Seals an Admap, preventing further modification in any way until the [break](#Admap+break) method is called
+
+**Kind**: instance method of [<code>Basicmap</code>](#Basicmap)  
+**Returns**: <code>Admap.&lt;\*, \*&gt;</code> - The sealed Admap  
+<a name="Admap+break"></a>
+
+### basicmap.break() ⇒ <code>Admap.&lt;\*, \*&gt;</code>
+Breaks a seal, allowing the Admap to be modified again, does nothing if the Admap wasn't sealed
+
+**Kind**: instance method of [<code>Basicmap</code>](#Basicmap)  
+**Returns**: <code>Admap.&lt;\*, \*&gt;</code> - The Admap, after being unsealed  
+<a name="Admap+each"></a>
+
+### basicmap.each(fn, [thisArg]) ⇒ <code>Admap.&lt;\*, \*&gt;</code>
+Exactly the same as [`Map.forEach()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/forEach) but
+returns the Admap instead of undefined
+
+**Kind**: instance method of [<code>Basicmap</code>](#Basicmap)  
+**Returns**: <code>Admap.&lt;\*, \*&gt;</code> - The set after the function was ran  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| fn | <code>function</code> | The function to run |
+| [thisArg] | <code>\*</code> | The argument to use as `this` |
+
 <a name="CustomError"></a>
 
 ## CustomError ⇐ <code>Error</code>
