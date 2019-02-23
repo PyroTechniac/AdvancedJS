@@ -1,2 +1,2 @@
-language: node_os
+language: node_js
 install: npm install
