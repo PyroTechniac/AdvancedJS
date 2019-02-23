@@ -30,6 +30,8 @@ An Advanced Map structure with more utility methods
 
 * [Admap](#Admap) ⇐ <code>Map</code>
     * [new Admap([iterable])](#new_Admap_new)
+    * [.keyArray()](#Admap+keyArray) ⇒ <code>Array.&lt;\*&gt;</code>
+    * [.array()](#Admap+array) ⇒ <code>Array.&lt;\*&gt;</code>
     * [.seal()](#Admap+seal) ⇒ <code>Admap.&lt;\*, \*&gt;</code>
     * [.break()](#Admap+break) ⇒ <code>Admap.&lt;\*, \*&gt;</code>
     * [.each(fn, [thisArg])](#Admap+each) ⇒ <code>Admap.&lt;\*, \*&gt;</code>
@@ -44,6 +46,20 @@ Initializes an Admap
 | --- | --- | --- |
 | [iterable] | <code>Iterable.&lt;\*, \*&gt;</code> | The iterable to initialize the Admap with |
 
+<a name="Admap+keyArray"></a>
+
+### admap.keyArray() ⇒ <code>Array.&lt;\*&gt;</code>
+Returns an ordered array of all the keys in this Admap
+
+**Kind**: instance method of [<code>Admap</code>](#Admap)  
+**Returns**: <code>Array.&lt;\*&gt;</code> - An array of the keys  
+<a name="Admap+array"></a>
+
+### admap.array() ⇒ <code>Array.&lt;\*&gt;</code>
+Returns an ordered array of all the values in this Admap
+
+**Kind**: instance method of [<code>Admap</code>](#Admap)  
+**Returns**: <code>Array.&lt;\*&gt;</code> - An array of the values  
 <a name="Admap+seal"></a>
 
 ### admap.seal() ⇒ <code>Admap.&lt;\*, \*&gt;</code>

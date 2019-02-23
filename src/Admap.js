@@ -12,11 +12,45 @@ class Admap extends Map {
         super(iterable);
 
         /**
+         * Cached array for the `array()` method, will be reset to null whenever `set()` or `delete()` are called
+         * @name Admap#_array
+         * @type {?Array}
+         * @private
+         */
+        Object.defineProperty(this, '_array', { value: null, writable: true, configurable: true });
+
+        /**
+         * Cached array for the `keyArray()` method, will be reset to null whenever `set()` or `delete()` are called
+         * @name Admap#_keyArray
+         * @type {?Array}
+         * @private
+         */
+        Object.defineProperty(this, '_keyArray', { value: null, writable: true, configurable: true });
+
+        /**
          * Whether the Admap is sealed or not, if true, the Adset cannot be modified in any way
          * @type {Boolean}
          * @private
          */
         Object.defineProperty(this, '_sealed', { value: false, writable: true, configurable: false });
+    }
+
+    /**
+     * Returns an ordered array of all the keys in this Admap
+     * @returns {Array<*>} An array of the keys
+     */
+    keyArray() {
+        if (!this._keyArray || this._keyArray !== this.size) this._keyArray = [...this.keys()];
+        return this._keyArray;
+    }
+
+    /**
+     * Returns an ordered array of all the values in this Admap
+     * @returns {Array<*>} An array of the values
+     */
+    array() {
+        if (!this._array || this._array.length !== this.size) this._array = [...this.values()];
+        return this._array;
     }
 
     /**
