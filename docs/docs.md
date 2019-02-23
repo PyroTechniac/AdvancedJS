@@ -31,8 +31,8 @@ An Advanced Map structure with more utility methods
 * [Admap](#Admap) ⇐ <code>Map</code>
     * [new Admap([iterable])](#new_Admap_new)
     * [.seal()](#Admap+seal) ⇒ <code>Admap.&lt;\*, \*&gt;</code>
-    * [.break()](#Admap+break) ⇒ <code>Admap.&lt;\*&gt;</code>
-    * [.each(fn, [thisArg])](#Admap+each) ⇒ <code>Admap.&lt;\*&gt;</code>
+    * [.break()](#Admap+break) ⇒ <code>Admap.&lt;\*, \*&gt;</code>
+    * [.each(fn, [thisArg])](#Admap+each) ⇒ <code>Admap.&lt;\*, \*&gt;</code>
 
 <a name="new_Admap_new"></a>
 
@@ -53,18 +53,18 @@ Seals an Admap, preventing further modification in any way until the [break](#Ad
 **Returns**: <code>Admap.&lt;\*, \*&gt;</code> - The sealed Admap  
 <a name="Admap+break"></a>
 
-### admap.break() ⇒ <code>Admap.&lt;\*&gt;</code>
+### admap.break() ⇒ <code>Admap.&lt;\*, \*&gt;</code>
 Breaks a seal, allowing the Admap to be modified again, does nothing if the Admap wasn't sealed
 
 **Kind**: instance method of [<code>Admap</code>](#Admap)  
-**Returns**: <code>Admap.&lt;\*&gt;</code> - The Admap, after being unsealed  
+**Returns**: <code>Admap.&lt;\*, \*&gt;</code> - The Admap, after being unsealed  
 <a name="Admap+each"></a>
 
-### admap.each(fn, [thisArg]) ⇒ <code>Admap.&lt;\*&gt;</code>
+### admap.each(fn, [thisArg]) ⇒ <code>Admap.&lt;\*, \*&gt;</code>
 Exactly the same as [`Map.forEach()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/forEach) butreturns the Admap instead of undefined
 
 **Kind**: instance method of [<code>Admap</code>](#Admap)  
-**Returns**: <code>Admap.&lt;\*&gt;</code> - The set after the function was ran  
+**Returns**: <code>Admap.&lt;\*, \*&gt;</code> - The set after the function was ran  
 
 | Param | Type | Description |
 | --- | --- | --- |

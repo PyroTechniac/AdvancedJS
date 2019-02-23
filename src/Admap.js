@@ -30,7 +30,7 @@ class Admap extends Map {
 
     /**
      * Breaks a seal, allowing the Admap to be modified again, does nothing if the Admap wasn't sealed
-     * @returns {Admap<*>} The Admap, after being unsealed
+     * @returns {Admap<*, *>} The Admap, after being unsealed
      */
     break() {
         this._sealed = false;
@@ -57,7 +57,7 @@ class Admap extends Map {
     * returns the Admap instead of undefined
     * @param {Function} fn The function to run
     * @param {*} [thisArg] The argument to use as `this`
-    * @returns {Admap<*>} The set after the function was ran
+    * @returns {Admap<*, *>} The set after the function was ran
     */
     each(fn, thisArg) {
         if (this._sealed) throw new Err('The Admap is sealed, and cannot be modified', 'AdmapSealedError');
