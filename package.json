@@ -5,7 +5,8 @@
     "main": "./index.js",
     "scripts": {
         "test": "node ./test/main.js",
-        "docs": "node ./docs/build.js"
+        "docs": "node ./docs/build.js",
+        "travis": "yarn test && yarn docs"
     },
     "types": "./index.d.ts",
     "description": "A package that extends basic JavaScript Objects",
