@@ -9,7 +9,7 @@ class Admap extends Map {
      * @param {?Store} store The store that initialized this Admap, if there was one
      * @param {Iterable<*, *>} [iterable] The iterable to initialize the Admap with
      */
-    constructor(store, iterable) {
+    constructor(store = null, iterable) {
         super(iterable);
 
         /**

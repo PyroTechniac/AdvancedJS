@@ -14,7 +14,7 @@ class Adset extends Set {
      * @param {?Store} store The store that initialized this adset, if there was one
      * @param {Iterator} [iterator] Any type of iterator
      */
-    constructor(store, iterator) {
+    constructor(store = null, iterator) {
         super(iterator);
 
         /**

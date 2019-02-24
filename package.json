@@ -12,7 +12,7 @@
         "lint:typings:fix": "tslint ./typings.d.ts --fix",
         "lint:all": "yarn lint && yarn lint:typings",
         "lint:all:fix": "yarn lint:fix && yarn lint:typings:fix",
-        "travis": "yarn test && yarn lint:all",
+        "travis": "yarn lint:all && node ./test/build.js",
         "prepublish": "yarn docs && git add -A"
     },
     "types": "./typings.d.ts",
