@@ -51,7 +51,7 @@ class Util {
 Util.sleep = promisify(setTimeout);
 
 /**
- * Promisified version of {@link https://nodejs.org/api/child_process.html#child_process_child_process_exec_command_options_callback} to be used with await
+ * Promisified version of exec to be used with await
  * @param {String} command The command to run
  * @param {external:ExecOptions} [options] The options to pass to exec
  * @returns {Promise<{ stdout: string, stderr: string}>} The promise
