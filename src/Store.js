@@ -1,39 +1,52 @@
 const Err = require('./Error');
 const Adset = require('./Adset');
 const Admap = require('./Admap');
-const Util = require('./Util');
 /**
  * A store, which is used to interact with AdvancedJS easily
  */
 class Store {
     /**
-     * Initializes a store, with options
-     * @param {StoreOptions} [options] Options for initializing the store
+     * Initializes a new Store
+     * @param {Iterable<*>} [adsetIterator] The iterator for the adset
+     * @param {Iterable<*>} [admapIterator] The iterator for the admap
      */
-    constructor(options = {}) {
-        options = Util.verifyStoreOptions(options);
+    constructor(admapIterator, adsetIterator) {
         /**
          * The Store's Admap
-         * @type {?Admap}
+         * @type {Admap}
          */
-        if (options.admap) this.map = new Admap(this, options.admapIterable);
-        else this.map = null;
+        this.map = new Admap(this, admapIterator);
 
         /**
          * The Store's Adset
-         * @type {?Adset}
+         * @type {Adset}
          */
-        if (options.adset) this.set = new Adset(options.adsetIterable);
-        else this.set = null;
+        this.set = new Adset(this, adsetIterator);
+    }
+
+    /**
+     * Sets a new Admap as the map
+     * @param {Admap} map The Admap to set
+     * @returns {Store} The store, after setting the new Admap
+     */
+    newMap(map) {
+        if (map.constructor.name !== 'Admap') throw new Err(`An Admap must be passed to the newMap method, found type ${map.constructor.name}`, 'StoreAdmapError');
+        this.map.store = null;
+        this.map = map;
+        return this;
+    }
+
+    /**
+     * Sets a new Adset as the set
+     * @param {Adset} set The Adset to set
+     * @returns {Store} The store, after setting the new Adset
+     */
+    newSet(set) {
+        if (set.constructor.name !== 'Adset') throw new Err(`An Adset must be passed to the newSet method, found type ${set.constructor.name}`, 'StoreAdsetError');
+        this.set.store = null;
+        this.set = set;
+        return this;
     }
 }
-/**
- * Options for initializing a new {@link Store}
- * @typedef {Object} StoreOptions
- * @property {Iterable} [adsetIterable] The iterable to initialize the store's {@link Adset} with
- * @property {Iterable} [admapIterable] The iterable to initialize the store's {@link Admap} with
- * @property {Boolean} [admap=true] Whether to initialize an Admap or not
- * @property {Boolean} [adset=true] Whether to initialize an Adset or not
- */
 
 module.exports = Store;

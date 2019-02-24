@@ -4,7 +4,6 @@ const nextra = require('fs-nextra');
 const path = require('path');
 const pkgdata = require('../package.json');
 const Admap = require('./Admap');
-const Store = require('./Store');
 /**
  * An Advanced Set structure with more utility methods
  * @extends {Set}

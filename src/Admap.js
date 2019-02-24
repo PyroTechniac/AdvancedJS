@@ -1,5 +1,4 @@
 const Err = require('./Error');
-const Store = require('./Store');
 /**
  * An Advanced Map structure with more utility methods
  * @extends {Map}
