@@ -15,7 +15,7 @@
         "travis": "yarn test && yarn lint:all",
         "prepublish": "yarn docs && git add -A"
     },
-    "types": "./index.d.ts",
+    "types": "./typings.d.ts",
     "description": "A package that extends basic JavaScript Objects",
     "repository": {
         "type": "git",

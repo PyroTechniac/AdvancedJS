@@ -16,6 +16,10 @@
 <dt><a href="#CustomError">CustomError</a> ⇐ <code>Error</code></dt>
 <dd><p>A custom error, with a providable name to make it unique</p>
 </dd>
+<dt><a href="#Store">Store</a></dt>
+<dd><p>A store
+Who&#39;s purpose is yet unknown</p>
+</dd>
 <dt><a href="#Util">Util</a></dt>
 <dd><p>A Utility class with several methods</p>
 </dd>
@@ -647,6 +651,12 @@ Creates a new Error, usually to be used with [`throw`](https://developer.mozilla
 | message | <code>String</code> |  | The Error Message |
 | [name] | <code>String</code> | <code>AdvancedJSError</code> | The name of the error, defaults to `AdvancedJSError` |
 
+<a name="Store"></a>
+
+## Store
+A storeWho's purpose is yet unknown
+
+**Kind**: global class  
 <a name="Util"></a>
 
 ## Util
