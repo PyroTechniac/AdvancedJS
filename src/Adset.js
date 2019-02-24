@@ -4,6 +4,7 @@ const nextra = require('fs-nextra');
 const path = require('path');
 const pkgdata = require('../package.json');
 const Admap = require('./Admap');
+const Store = require('./Store');
 /**
  * An Advanced Set structure with more utility methods
  * @extends {Set}
@@ -11,10 +12,18 @@ const Admap = require('./Admap');
 class Adset extends Set {
     /**
      * Initializes a new Adset
+     * @param {?Store} store The store that initialized this adset, if there was one
      * @param {Iterator} [iterator] Any type of iterator
      */
-    constructor(iterator) {
+    constructor(store, iterator) {
         super(iterator);
+
+        /**
+         * The store that initialized this Adset
+         * @type {?Store}
+         */
+        this.store = store,
+
         /**
          * Cached array for the `array()` method, will be reset to null whenever `add()` or `delete()` are called
          * @name Adset#_array

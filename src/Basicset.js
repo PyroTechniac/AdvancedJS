@@ -6,7 +6,7 @@ const Adset = require('./Adset');
  */
 class Basicset extends Adset {
     constructor(iterable) {
-        super(iterable);
+        super(null, iterable);
         if (this.array().map(ele => {
             return ele.constructor.name;
         }).includes('Object') || this.array().map(ele => {

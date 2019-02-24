@@ -38,6 +38,14 @@ class Util {
     static isObject(input) {
         return input && input.constructor === Object;
     }
+
+    static verifyStoreOptions(options) {
+        if (!options.admapIterable) options.admapIterable = null;
+        if (!options.adsetIterable) options.adsetIterable = null;
+        if (typeof options.admap === 'undefined' || typeof options.admap !== 'boolean') options.admap = true;
+        if (typeof options.adset === 'undefined' || typeof options.adset !== 'boolean') options.adset = true;
+        return options;
+    }
 }
 
 /**

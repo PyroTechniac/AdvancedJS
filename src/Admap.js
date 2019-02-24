@@ -1,4 +1,5 @@
 const Err = require('./Error');
+const Store = require('./Store');
 /**
  * An Advanced Map structure with more utility methods
  * @extends {Map}
@@ -6,10 +7,17 @@ const Err = require('./Error');
 class Admap extends Map {
     /**
      * Initializes an Admap
+     * @param {?Store} store The store that initialized this Admap, if there was one
      * @param {Iterable<*, *>} [iterable] The iterable to initialize the Admap with
      */
-    constructor(iterable) {
+    constructor(store, iterable) {
         super(iterable);
+
+        /**
+         * The Store that initialized this Admap
+         * @type {?Store}
+         */
+        this.store = store;
 
         /**
          * Cached array for the `array()` method, will be reset to null whenever `set()` or `delete()` are called
