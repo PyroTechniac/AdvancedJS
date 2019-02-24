@@ -17,8 +17,7 @@
 <dd><p>A custom error, with a providable name to make it unique</p>
 </dd>
 <dt><a href="#Store">Store</a></dt>
-<dd><p>A store
-Who&#39;s purpose is yet unknown</p>
+<dd><p>A store, which is used to interact with AdvancedJS easily</p>
 </dd>
 <dt><a href="#Util">Util</a></dt>
 <dd><p>A Utility class with several methods</p>
@@ -31,6 +30,9 @@ Who&#39;s purpose is yet unknown</p>
 <dt><a href="#AdsetGetOptions">AdsetGetOptions</a> : <code>Object</code></dt>
 <dd><p>Options for an Adset&#39;s <code>get()</code> method</p>
 </dd>
+<dt><a href="#StoreOptions">StoreOptions</a> : <code>Object</code></dt>
+<dd><p>Options for initializing a new <a href="#Store">Store</a></p>
+</dd>
 </dl>
 
 <a name="Admap"></a>
@@ -42,7 +44,8 @@ An Advanced Map structure with more utility methods
 **Extends**: <code>Map</code>  
 
 * [Admap](#Admap) ⇐ <code>Map</code>
-    * [new Admap([iterable])](#new_Admap_new)
+    * [new Admap(store, [iterable])](#new_Admap_new)
+    * [.store](#Admap+store) : [<code>Store</code>](#Store)
     * [.keyArray()](#Admap+keyArray) ⇒ <code>Array.&lt;\*&gt;</code>
     * [.array()](#Admap+array) ⇒ <code>Array.&lt;\*&gt;</code>
     * [.seal()](#Admap+seal) ⇒ <code>Admap.&lt;\*, \*&gt;</code>
@@ -51,14 +54,21 @@ An Advanced Map structure with more utility methods
 
 <a name="new_Admap_new"></a>
 
-### new Admap([iterable])
+### new Admap(store, [iterable])
 Initializes an Admap
 
 
 | Param | Type | Description |
 | --- | --- | --- |
+| store | [<code>Store</code>](#Store) | The store that initialized this Admap, if there was one |
 | [iterable] | <code>Iterable.&lt;\*, \*&gt;</code> | The iterable to initialize the Admap with |
 
+<a name="Admap+store"></a>
+
+### admap.store : [<code>Store</code>](#Store)
+The Store that initialized this Admap
+
+**Kind**: instance property of [<code>Admap</code>](#Admap)  
 <a name="Admap+keyArray"></a>
 
 ### admap.keyArray() ⇒ <code>Array.&lt;\*&gt;</code>
@@ -109,7 +119,7 @@ An Advanced Set structure with more utility methods
 **Extends**: <code>Set</code>  
 
 * [Adset](#Adset) ⇐ <code>Set</code>
-    * [new Adset([iterator])](#new_Adset_new)
+    * [new Adset(store, [iterator])](#new_Adset_new)
     * [.store()](#Adset+store) ⇒ <code>Object</code>
     * [.parse()](#Adset+parse) ⇒ <code>Admap.&lt;String, Object.&lt;String, Array&gt;&gt;</code>
     * [.access()](#Adset+access) ⇒ <code>Admap.&lt;String, Array.&lt;\*&gt;&gt;</code>
@@ -134,12 +144,13 @@ An Advanced Set structure with more utility methods
 
 <a name="new_Adset_new"></a>
 
-### new Adset([iterator])
+### new Adset(store, [iterator])
 Initializes a new Adset
 
 
 | Param | Type | Description |
 | --- | --- | --- |
+| store | [<code>Store</code>](#Store) | The store that initialized this adset, if there was one |
 | [iterator] | <code>Iterator</code> | Any type of iterator |
 
 <a name="Adset+store"></a>
@@ -353,12 +364,19 @@ A Basicmap structure with the same utility methods as [Admap](#Admap), but can o
 **Extends**: [<code>Admap</code>](#Admap)  
 
 * [Basicmap](#Basicmap) ⇐ [<code>Admap</code>](#Admap)
+    * [.store](#Admap+store) : [<code>Store</code>](#Store)
     * [.keyArray()](#Admap+keyArray) ⇒ <code>Array.&lt;\*&gt;</code>
     * [.array()](#Admap+array) ⇒ <code>Array.&lt;\*&gt;</code>
     * [.seal()](#Admap+seal) ⇒ <code>Admap.&lt;\*, \*&gt;</code>
     * [.break()](#Admap+break) ⇒ <code>Admap.&lt;\*, \*&gt;</code>
     * [.each(fn, [thisArg])](#Admap+each) ⇒ <code>Admap.&lt;\*, \*&gt;</code>
 
+<a name="Admap+store"></a>
+
+### basicmap.store : [<code>Store</code>](#Store)
+The Store that initialized this Admap
+
+**Kind**: instance property of [<code>Basicmap</code>](#Basicmap)  
 <a name="Admap+keyArray"></a>
 
 ### basicmap.keyArray() ⇒ <code>Array.&lt;\*&gt;</code>
@@ -654,9 +672,19 @@ Creates a new Error, usually to be used with [`throw`](https://developer.mozilla
 <a name="Store"></a>
 
 ## Store
-A storeWho's purpose is yet unknown
+A store, which is used to interact with AdvancedJS easily
 
 **Kind**: global class  
+<a name="new_Store_new"></a>
+
+### new Store([options])
+Initializes a store, with options
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| [options] | [<code>StoreOptions</code>](#StoreOptions) | Options for initializing the store |
+
 <a name="Util"></a>
 
 ## Util
@@ -745,4 +773,19 @@ Options for an Adset's `get()` method
 | --- | --- | --- | --- |
 | value | <code>\*</code> |  | The value to search for |
 | [mode] | <code>String</code> | <code>strict</code> | The mode to search, either `loose (==)` or `strict (===)` |
+
+<a name="StoreOptions"></a>
+
+## StoreOptions : <code>Object</code>
+Options for initializing a new [Store](#Store)
+
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| [adsetIterable] | <code>Iterable</code> |  | The iterable to initialize the store's [Adset](#Adset) with |
+| [admapIterable] | <code>Iterable</code> |  | The iterable to initialize the store's [Admap](#Admap) with |
+| [admap] | <code>Boolean</code> | <code>true</code> | Whether to initialize an Admap or not |
+| [adset] | <code>Boolean</code> | <code>true</code> | Whether to initialize an Adset or not |
 
