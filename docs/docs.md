@@ -55,10 +55,10 @@ An Advanced Map structure with more utility methods
 Initializes an Admap
 
 
-| Param | Type | Description |
-| --- | --- | --- |
-| store | [<code>Store</code>](#Store) | The store that initialized this Admap, if there was one |
-| [iterable] | <code>Iterable.&lt;\*, \*&gt;</code> | The iterable to initialize the Admap with |
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| store | [<code>Store</code>](#Store) | <code></code> | The store that initialized this Admap, if there was one |
+| [iterable] | <code>Iterable.&lt;\*, \*&gt;</code> |  | The iterable to initialize the Admap with |
 
 <a name="Admap+store"></a>
 
@@ -145,10 +145,10 @@ An Advanced Set structure with more utility methods
 Initializes a new Adset
 
 
-| Param | Type | Description |
-| --- | --- | --- |
-| store | [<code>Store</code>](#Store) | The store that initialized this adset, if there was one |
-| [iterator] | <code>Iterator</code> | Any type of iterator |
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| store | [<code>Store</code>](#Store) | <code></code> | The store that initialized this adset, if there was one |
+| [iterator] | <code>Iterator</code> |  | Any type of iterator |
 
 <a name="Adset+store"></a>
 
