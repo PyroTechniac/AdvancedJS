@@ -25,7 +25,8 @@
     },
     "license": "Apache-2.0",
     "dependencies": {
-        "fs-nextra": "^0.4.3"
+        "fs-nextra": "^0.4.3",
+        "util": "^0.11.1"
     },
     "devDependencies": {
         "@types/node": "^11.9.5",
