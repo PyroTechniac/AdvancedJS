@@ -350,7 +350,7 @@ class Adset extends Set {
         if (!modes.includes(options.mode)) throw new Err(`Get mode requires either strict or loose, found ${options.mode}`, 'AdsetGetError');
         for (const val of this) {
             if (val === options.value && options.mode === 'strict') return val;
-            if (val == options.value && options.mode === 'loose') return val;
+            if (val == options.value && options.mode === 'loose') return val; // eslint-disable-line eqeqeq
         }
         return undefined;
     }

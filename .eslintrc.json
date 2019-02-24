@@ -37,6 +37,10 @@
             "error",
             "property"
         ],
+        "eqeqeq": [
+            "error",
+            "always"
+        ],
         "func-style": [
             "error",
             "expression",
