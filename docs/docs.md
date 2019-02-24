@@ -713,7 +713,7 @@ Promisified version of [setTimeout](https://developer.mozilla.org/en-US/docs/Web
 <a name="Util.exec"></a>
 
 ### Util.exec(command, [options]) ⇒ <code>Promise.&lt;{stdout: string, stderr: string}&gt;</code>
-Promisified version of [https://nodejs.org/api/child_process.html#child_process_child_process_exec_command_options_callback](https://nodejs.org/api/child_process.html#child_process_child_process_exec_command_options_callback) to be used with await
+Promisified version of exec to be used with await
 
 **Kind**: static method of [<code>Util</code>](#Util)  
 **Returns**: <code>Promise.&lt;{stdout: string, stderr: string}&gt;</code> - The promise  
