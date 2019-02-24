@@ -6,6 +6,12 @@
     "scripts": {
         "test": "node ./test/main.js",
         "docs": "node ./docs/build.js",
+        "lint": "eslint src *.js",
+        "lint:fix": "eslint src --fix",
+        "lint:typings": "tslint ./index.d.ts",
+        "lint:typings:fix": "tslint ./index.d.ts --fix",
+        "lint:all": "yarn lint && yarn lint:typings",
+        "lint:all:fix": "yarn lint:fix && yarn lint:typings:fix",
         "travis": "yarn test"
     },
     "types": "./index.d.ts",
@@ -19,7 +25,8 @@
     },
     "license": "Apache-2.0",
     "dependencies": {
-        "fs-nextra": "^0.4.3"
+        "fs-nextra": "^0.4.3",
+        "tslint-config-typings": "^0.3.1"
     },
     "devDependencies": {
         "@types/node": "^11.9.5",
@@ -31,6 +38,7 @@
         "eslint-plugin-promise": "^4.0.1",
         "eslint-plugin-standard": "^4.0.0",
         "jsdoc-to-markdown": "^4.0.1",
+        "tslint": "^5.13.0",
         "typescript": "^3.3.3333"
     },
     "optionalDependencies": {},
