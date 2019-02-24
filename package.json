@@ -6,7 +6,7 @@
     "scripts": {
         "test": "node ./test/main.js",
         "docs": "node ./docs/build.js",
-        "travis": "yarn test && yarn docs"
+        "travis": "yarn test && node ./docs/travis.js"
     },
     "types": "./index.d.ts",
     "description": "A package that extends basic JavaScript Objects",
