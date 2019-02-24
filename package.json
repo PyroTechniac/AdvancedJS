@@ -1,6 +1,6 @@
 {
     "name": "advancedjs",
-    "version": "1.8.2",
+    "version": "1.8.3",
     "author": "Gryffon Bellish <owenbellish@gmail.com>",
     "main": "./index.js",
     "scripts": {
