@@ -16,6 +16,9 @@
 <dt><a href="#CustomError">CustomError</a> ⇐ <code>Error</code></dt>
 <dd><p>A custom error, with a providable name to make it unique</p>
 </dd>
+<dt><a href="#Util">Util</a></dt>
+<dd><p>A Utility class with several methods</p>
+</dd>
 </dl>
 
 ## Typedefs
@@ -669,6 +672,54 @@ Creates a new Error, usually to be used with [`throw`](https://developer.mozilla
 | --- | --- | --- | --- |
 | message | <code>String</code> |  | The Error Message |
 | [name] | <code>String</code> | <code>AdvancedJSError</code> | The name of the error, defaults to `AdvancedJSError` |
+
+<a name="Util"></a>
+
+## Util
+A Utility class with several methods
+
+**Kind**: global class  
+
+* [Util](#Util)
+    * [.isFunc(input)](#Util.isFunc) ⇒ <code>Boolean</code>
+    * [.isClass(input)](#Util.isClass) ⇒ <code>Boolean</code>
+    * [.isObject(input)](#Util.isObject) ⇒ <code>Boolean</code>
+
+<a name="Util.isFunc"></a>
+
+### Util.isFunc(input) ⇒ <code>Boolean</code>
+Checks if the provided input is a Function
+
+**Kind**: static method of [<code>Util</code>](#Util)  
+**Returns**: <code>Boolean</code> - Whether the input was a function  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| input | <code>function</code> | The function to verify |
+
+<a name="Util.isClass"></a>
+
+### Util.isClass(input) ⇒ <code>Boolean</code>
+Checks if the provided input is a class
+
+**Kind**: static method of [<code>Util</code>](#Util)  
+**Returns**: <code>Boolean</code> - Whether the input was a class  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| input | <code>function</code> | The class to verify |
+
+<a name="Util.isObject"></a>
+
+### Util.isObject(input) ⇒ <code>Boolean</code>
+Checks if the provided input is an object
+
+**Kind**: static method of [<code>Util</code>](#Util)  
+**Returns**: <code>Boolean</code> - Whether the input was an object  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| input | <code>Object</code> | The Object to verify |
 
 <a name="AdsetGetOptions"></a>
 
