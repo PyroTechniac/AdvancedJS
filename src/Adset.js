@@ -98,7 +98,7 @@ class Adset extends Set {
         const arrayIterator = ['Arrays', arrayObj];
         const objectIterator = ['Objects', objectObj];
         const mainIterator = [stringIterator, numberIterator, arrayIterator, objectIterator];
-        const map = new Admap(mainIterator);
+        const map = new Admap(null, mainIterator);
         if (this._sealed) map.seal();
         return map;
     }
@@ -157,7 +157,7 @@ class Adset extends Set {
      * @returns {Adset<Array>} All the arrays that are in the Adset
      */
     arrays() {
-        const results = new this.constructor();
+        const results = new this.constructor(null);
         for (const val of this) {
             if (val instanceof Array) results.add(val);
         }
@@ -172,7 +172,7 @@ class Adset extends Set {
      */
     clear() {
         if (this._sealed) throw new Err('The Adset is sealed, and cannot be modified', 'AdsetSealedError');
-        const set = new this.constructor(this);
+        const set = new this.constructor(null, this);
         super.clear();
         return set;
     }
@@ -227,7 +227,7 @@ class Adset extends Set {
      * @returns {Adset<String>} All the strings that are in the Adset
      */
     strings() {
-        const results = new this.constructor();
+        const results = new this.constructor(null);
         for (const val of this) {
             if (val.constructor === String) results.add(val);
         }
@@ -240,7 +240,7 @@ class Adset extends Set {
      * @returns {Adset<Object>} All the objects that are in the Adset
      */
     objects() {
-        const results = new this.constructor();
+        const results = new this.constructor(null);
         for (const val of this) {
             if (val instanceof Object && val.constructor === Object) results.add(val);
         }
@@ -253,7 +253,7 @@ class Adset extends Set {
      * @returns {Adset<Number>} All the numbers that are in the Adset
      */
     numbers() {
-        const results = new this.constructor();
+        const results = new this.constructor(null);
         for (const val of this) {
             if (typeof val === 'number') results.add(val);
         }
@@ -298,7 +298,7 @@ class Adset extends Set {
      */
     filter(fn, thisArg) {
         if (typeof thisArg !== 'undefined') fn = fn.bind(thisArg);
-        const results = new this.constructor[Symbol.species]();
+        const results = new this.constructor[Symbol.species](null);
         for (const val of this) {
             if (fn(val, val, this)) results.add(val);
         }
@@ -326,7 +326,7 @@ class Adset extends Set {
      * @example const newSet = oldSet.clone();
      */
     clone() {
-        const results = new this.constructor(this);
+        const results = new this.constructor(null, this);
         if (this._sealed) results.seal();
         return results;
     }
