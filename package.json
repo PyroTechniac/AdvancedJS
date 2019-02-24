@@ -13,7 +13,8 @@
         "lint:all": "yarn lint && yarn lint:typings",
         "lint:all:fix": "yarn lint:fix && yarn lint:typings:fix",
         "travis": "yarn test && yarn lint:all",
-        "prepublish": "yarn docs && git add -A"
+        "prepublish": "yarn docs && git add -A",
+        "postpublish": "git push"
     },
     "types": "./index.d.ts",
     "description": "A package that extends basic JavaScript Objects",
