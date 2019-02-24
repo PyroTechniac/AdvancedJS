@@ -25,8 +25,7 @@
     },
     "license": "Apache-2.0",
     "dependencies": {
-        "fs-nextra": "^0.4.3",
-        "tslint-config-typings": "^0.3.1"
+        "fs-nextra": "^0.4.3"
     },
     "devDependencies": {
         "@types/node": "^11.9.5",
@@ -39,6 +38,7 @@
         "eslint-plugin-standard": "^4.0.0",
         "jsdoc-to-markdown": "^4.0.1",
         "tslint": "^5.13.0",
+        "tslint-config-typings": "^0.3.1",
         "typescript": "^3.3.3333"
     },
     "optionalDependencies": {},
