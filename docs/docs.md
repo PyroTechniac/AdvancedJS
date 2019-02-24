@@ -86,8 +86,7 @@ Breaks a seal, allowing the Admap to be modified again, does nothing if the Adma
 <a name="Admap+each"></a>
 
 ### admap.each(fn, [thisArg]) ⇒ <code>Admap.&lt;\*, \*&gt;</code>
-Exactly the same as [`Map.forEach()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/forEach) but
-returns the Admap instead of undefined
+Exactly the same as [`Map.forEach()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/forEach) butreturns the Admap instead of undefined
 
 **Kind**: instance method of [<code>Admap</code>](#Admap)  
 **Returns**: <code>Admap.&lt;\*, \*&gt;</code> - The set after the function was ran  
@@ -142,27 +141,21 @@ Initializes a new Adset
 <a name="Adset+store"></a>
 
 ### adset.store() ⇒ <code>Object</code>
-Stores the data in the set, while calling the `access()` method. This means that the data should **not** be
-sealed
-<warn> This writes to a JSON file, and should not be used often, as JSON files are prone to corruption when written
-and read from repeatedly</warn>
+Stores the data in the set, while calling the `access()` method. This means that the data should **not** besealed<warn> This writes to a JSON file, and should not be used often, as JSON files are prone to corruption when writtenand read from repeatedly</warn>
 
 **Kind**: instance method of [<code>Adset</code>](#Adset)  
 **Returns**: <code>Object</code> - The JSON Object that was written to the file  
 <a name="Adset+parse"></a>
 
 ### adset.parse() ⇒ <code>Admap.&lt;String, Object.&lt;String, Array&gt;&gt;</code>
-Creates a new Map object containing the type of value(s) as the key, and an object ordering them
-by insertion with the key as the number, and the value as an array with the number in the original
-set, and the actual value
+Creates a new Map object containing the type of value(s) as the key, and an object ordering themby insertion with the key as the number, and the value as an array with the number in the originalset, and the actual value
 
 **Kind**: instance method of [<code>Adset</code>](#Adset)  
 **Returns**: <code>Admap.&lt;String, Object.&lt;String, Array&gt;&gt;</code> - The Map mentioned above  
 <a name="Adset+access"></a>
 
 ### adset.access() ⇒ <code>Admap.&lt;String, Array.&lt;\*&gt;&gt;</code>
-Creates a new [Admap](#Admap) object containing the type of value(s) as the key, and an array of every value
-as the value
+Creates a new [Admap](#Admap) object containing the type of value(s) as the key, and an array of every valueas the value
 
 **Kind**: instance method of [<code>Adset</code>](#Adset)  
 **Returns**: <code>Admap.&lt;String, Array.&lt;\*&gt;&gt;</code> - A map with the typeof value as the key, and an array of values as the value  
@@ -183,8 +176,7 @@ Retrieves all the arrays in the set
 <a name="Adset+clear"></a>
 
 ### adset.clear() ⇒ <code>Adset.&lt;\*&gt;</code>
-Exactly the same as [`Set.clear()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/clear) but
-returns the old Adset instead of undefined
+Exactly the same as [`Set.clear()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/clear) butreturns the old Adset instead of undefined
 
 **Kind**: instance method of [<code>Adset</code>](#Adset)  
 **Returns**: <code>Adset.&lt;\*&gt;</code> - The old set, can be discarded if not needed anymore  
@@ -194,8 +186,7 @@ returns the old Adset instead of undefined
 Obtains the first value(s) in the Adset
 
 **Kind**: instance method of [<code>Adset</code>](#Adset)  
-**Returns**: <code>\*</code> \| <code>Array.&lt;\*&gt;</code> - A single value if no amount is provided, or an array of values, starting from
-the end if the amount is negative  
+**Returns**: <code>\*</code> \| <code>Array.&lt;\*&gt;</code> - A single value if no amount is provided, or an array of values, starting fromthe end if the amount is negative  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -207,8 +198,7 @@ the end if the amount is negative
 Obtains the last value(s) in the Adset. This relies on [array](#Adset+array)
 
 **Kind**: instance method of [<code>Adset</code>](#Adset)  
-**Returns**: <code>\*</code> \| <code>Array.&lt;\*&gt;</code> - A single value if no amount is provided, or an array of values, starting from
-the beginning if the amount is negative  
+**Returns**: <code>\*</code> \| <code>Array.&lt;\*&gt;</code> - A single value if no amount is provided, or an array of values, starting fromthe beginning if the amount is negative  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -253,8 +243,7 @@ Retrieves all the numbers in the set
 <a name="Adset+each"></a>
 
 ### adset.each(fn, [thisArg]) ⇒ <code>Adset.&lt;\*&gt;</code>
-Exactly the same as [`Set.forEach()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/forEach) but
-returns the Adset instead of undefined
+Exactly the same as [`Set.forEach()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/forEach) butreturns the Adset instead of undefined
 
 **Kind**: instance method of [<code>Adset</code>](#Adset)  
 **Returns**: <code>Adset.&lt;\*&gt;</code> - The set after the function was ran  
@@ -267,8 +256,7 @@ returns the Adset instead of undefined
 <a name="Adset+find"></a>
 
 ### adset.find(fn, [thisArg]) ⇒ <code>\*</code>
-Searches for a single value where a given function returns truthy, similar to
-[Array.find()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find)
+Searches for a single value where a given function returns truthy, similar to[Array.find()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find)
 
 **Kind**: instance method of [<code>Adset</code>](#Adset)  
 **Returns**: <code>\*</code> - The argument found, undefined if nothing returned truthy  
@@ -281,8 +269,7 @@ Searches for a single value where a given function returns truthy, similar to
 <a name="Adset+filter"></a>
 
 ### adset.filter(fn, [thisArg]) ⇒ <code>Adset.&lt;\*&gt;</code>
-Exactly the same as [`Array.filter()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
-but returns an Adset instead of an Array
+Exactly the same as [`Array.filter()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)but returns an Adset instead of an Array
 
 **Kind**: instance method of [<code>Adset</code>](#Adset)  
 **Returns**: <code>Adset.&lt;\*&gt;</code> - The Adset after the filter was ran  
@@ -399,8 +386,7 @@ Breaks a seal, allowing the Admap to be modified again, does nothing if the Adma
 <a name="Admap+each"></a>
 
 ### basicmap.each(fn, [thisArg]) ⇒ <code>Admap.&lt;\*, \*&gt;</code>
-Exactly the same as [`Map.forEach()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/forEach) but
-returns the Admap instead of undefined
+Exactly the same as [`Map.forEach()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/forEach) butreturns the Admap instead of undefined
 
 **Kind**: instance method of [<code>Basicmap</code>](#Basicmap)  
 **Returns**: <code>Admap.&lt;\*, \*&gt;</code> - The set after the function was ran  
@@ -444,27 +430,21 @@ A Basicset structure with the same utility methods as [Adset](#Adset), but can o
 <a name="Adset+store"></a>
 
 ### basicset.store() ⇒ <code>Object</code>
-Stores the data in the set, while calling the `access()` method. This means that the data should **not** be
-sealed
-<warn> This writes to a JSON file, and should not be used often, as JSON files are prone to corruption when written
-and read from repeatedly</warn>
+Stores the data in the set, while calling the `access()` method. This means that the data should **not** besealed<warn> This writes to a JSON file, and should not be used often, as JSON files are prone to corruption when writtenand read from repeatedly</warn>
 
 **Kind**: instance method of [<code>Basicset</code>](#Basicset)  
 **Returns**: <code>Object</code> - The JSON Object that was written to the file  
 <a name="Adset+parse"></a>
 
 ### basicset.parse() ⇒ <code>Admap.&lt;String, Object.&lt;String, Array&gt;&gt;</code>
-Creates a new Map object containing the type of value(s) as the key, and an object ordering them
-by insertion with the key as the number, and the value as an array with the number in the original
-set, and the actual value
+Creates a new Map object containing the type of value(s) as the key, and an object ordering themby insertion with the key as the number, and the value as an array with the number in the originalset, and the actual value
 
 **Kind**: instance method of [<code>Basicset</code>](#Basicset)  
 **Returns**: <code>Admap.&lt;String, Object.&lt;String, Array&gt;&gt;</code> - The Map mentioned above  
 <a name="Adset+access"></a>
 
 ### basicset.access() ⇒ <code>Admap.&lt;String, Array.&lt;\*&gt;&gt;</code>
-Creates a new [Admap](#Admap) object containing the type of value(s) as the key, and an array of every value
-as the value
+Creates a new [Admap](#Admap) object containing the type of value(s) as the key, and an array of every valueas the value
 
 **Kind**: instance method of [<code>Basicset</code>](#Basicset)  
 **Returns**: <code>Admap.&lt;String, Array.&lt;\*&gt;&gt;</code> - A map with the typeof value as the key, and an array of values as the value  
@@ -485,8 +465,7 @@ Retrieves all the arrays in the set
 <a name="Adset+clear"></a>
 
 ### basicset.clear() ⇒ <code>Adset.&lt;\*&gt;</code>
-Exactly the same as [`Set.clear()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/clear) but
-returns the old Adset instead of undefined
+Exactly the same as [`Set.clear()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/clear) butreturns the old Adset instead of undefined
 
 **Kind**: instance method of [<code>Basicset</code>](#Basicset)  
 **Returns**: <code>Adset.&lt;\*&gt;</code> - The old set, can be discarded if not needed anymore  
@@ -496,8 +475,7 @@ returns the old Adset instead of undefined
 Obtains the first value(s) in the Adset
 
 **Kind**: instance method of [<code>Basicset</code>](#Basicset)  
-**Returns**: <code>\*</code> \| <code>Array.&lt;\*&gt;</code> - A single value if no amount is provided, or an array of values, starting from
-the end if the amount is negative  
+**Returns**: <code>\*</code> \| <code>Array.&lt;\*&gt;</code> - A single value if no amount is provided, or an array of values, starting fromthe end if the amount is negative  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -509,8 +487,7 @@ the end if the amount is negative
 Obtains the last value(s) in the Adset. This relies on [array](#Adset+array)
 
 **Kind**: instance method of [<code>Basicset</code>](#Basicset)  
-**Returns**: <code>\*</code> \| <code>Array.&lt;\*&gt;</code> - A single value if no amount is provided, or an array of values, starting from
-the beginning if the amount is negative  
+**Returns**: <code>\*</code> \| <code>Array.&lt;\*&gt;</code> - A single value if no amount is provided, or an array of values, starting fromthe beginning if the amount is negative  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -555,8 +532,7 @@ Retrieves all the numbers in the set
 <a name="Adset+each"></a>
 
 ### basicset.each(fn, [thisArg]) ⇒ <code>Adset.&lt;\*&gt;</code>
-Exactly the same as [`Set.forEach()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/forEach) but
-returns the Adset instead of undefined
+Exactly the same as [`Set.forEach()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/forEach) butreturns the Adset instead of undefined
 
 **Kind**: instance method of [<code>Basicset</code>](#Basicset)  
 **Returns**: <code>Adset.&lt;\*&gt;</code> - The set after the function was ran  
@@ -569,8 +545,7 @@ returns the Adset instead of undefined
 <a name="Adset+find"></a>
 
 ### basicset.find(fn, [thisArg]) ⇒ <code>\*</code>
-Searches for a single value where a given function returns truthy, similar to
-[Array.find()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find)
+Searches for a single value where a given function returns truthy, similar to[Array.find()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find)
 
 **Kind**: instance method of [<code>Basicset</code>](#Basicset)  
 **Returns**: <code>\*</code> - The argument found, undefined if nothing returned truthy  
@@ -583,8 +558,7 @@ Searches for a single value where a given function returns truthy, similar to
 <a name="Adset+filter"></a>
 
 ### basicset.filter(fn, [thisArg]) ⇒ <code>Adset.&lt;\*&gt;</code>
-Exactly the same as [`Array.filter()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
-but returns an Adset instead of an Array
+Exactly the same as [`Array.filter()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)but returns an Adset instead of an Array
 
 **Kind**: instance method of [<code>Basicset</code>](#Basicset)  
 **Returns**: <code>Adset.&lt;\*&gt;</code> - The Adset after the filter was ran  
@@ -684,6 +658,8 @@ A Utility class with several methods
     * [.isFunc(input)](#Util.isFunc) ⇒ <code>Boolean</code>
     * [.isClass(input)](#Util.isClass) ⇒ <code>Boolean</code>
     * [.isObject(input)](#Util.isObject) ⇒ <code>Boolean</code>
+    * [.sleep(delay, [args])](#Util.sleep) ⇒ <code>Promise.&lt;\*&gt;</code>
+    * [.exec(command, [options])](#Util.exec) ⇒ <code>Promise.&lt;{stdout: string, stderr: string}&gt;</code>
 
 <a name="Util.isFunc"></a>
 
@@ -720,6 +696,32 @@ Checks if the provided input is an object
 | Param | Type | Description |
 | --- | --- | --- |
 | input | <code>Object</code> | The Object to verify |
+
+<a name="Util.sleep"></a>
+
+### Util.sleep(delay, [args]) ⇒ <code>Promise.&lt;\*&gt;</code>
+Promisified version of [setTimeout](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout) to be used with await
+
+**Kind**: static method of [<code>Util</code>](#Util)  
+**Returns**: <code>Promise.&lt;\*&gt;</code> - The args value passed in  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| delay | <code>Number</code> | The amount of time in ms to delay |
+| [args] | <code>\*</code> | Any args to pass to the .then (mostly pointless in this form) |
+
+<a name="Util.exec"></a>
+
+### Util.exec(command, [options]) ⇒ <code>Promise.&lt;{stdout: string, stderr: string}&gt;</code>
+Promisified version of [https://nodejs.org/api/child_process.html#child_process_child_process_exec_command_options_callback](https://nodejs.org/api/child_process.html#child_process_child_process_exec_command_options_callback) to be used with await
+
+**Kind**: static method of [<code>Util</code>](#Util)  
+**Returns**: <code>Promise.&lt;{stdout: string, stderr: string}&gt;</code> - The promise  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| command | <code>String</code> | The command to run |
+| [options] | <code>external:ExecOptions</code> | The options to pass to exec |
 
 <a name="AdsetGetOptions"></a>
 
