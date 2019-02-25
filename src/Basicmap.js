@@ -6,7 +6,7 @@ const Admap = require('./Admap');
  */
 class Basicmap extends Admap {
     constructor(iterable) {
-        super(null, iterable);
+        super(iterable);
         this.keyArray().forEach(element => {
             if (element.constructor !== Number && element.constructor !== String) throw new Err(`A Basic Map can only have Strings and Numbers as it's keys, found ${element.constructor.name}`);
         });

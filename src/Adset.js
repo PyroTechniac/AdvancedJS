@@ -11,17 +11,10 @@ const Admap = require('./Admap');
 class Adset extends Set {
     /**
      * Initializes a new Adset
-     * @param {?Store} store The store that initialized this adset, if there was one
      * @param {Iterator} [iterator] Any type of iterator
      */
-    constructor(store = null, iterator) {
+    constructor(iterator) {
         super(iterator);
-
-        /**
-         * The store that initialized this Adset
-         * @type {?Store}
-         */
-        this.store = store,
 
         /**
          * Cached array for the `array()` method, will be reset to null whenever `add()` or `delete()` are called
@@ -98,7 +91,7 @@ class Adset extends Set {
         const arrayIterator = ['Arrays', arrayObj];
         const objectIterator = ['Objects', objectObj];
         const mainIterator = [stringIterator, numberIterator, arrayIterator, objectIterator];
-        const map = new Admap(null, mainIterator);
+        const map = new Admap(mainIterator);
         if (this._sealed) map.seal();
         return map;
     }
