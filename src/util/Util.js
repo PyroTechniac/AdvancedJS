@@ -1,4 +1,4 @@
-const Err = require('./Error');
+const Err = require('../Error');
 
 const { promisify } = require('util');
 const { exec } = require('child_process');
@@ -39,12 +39,52 @@ class Util {
         return input && input.constructor === Object;
     }
 
-    static verifyStoreOptions(options) {
-        if (!options.admapIterable) options.admapIterable = null;
-        if (!options.adsetIterable) options.adsetIterable = null;
-        if (typeof options.admap === 'undefined' || typeof options.admap !== 'boolean') options.admap = true;
-        if (typeof options.adset === 'undefined' || typeof options.adset !== 'boolean') options.adset = true;
-        return options;
+    /**
+    * Deep clone a value
+    * @param {*} source The object to clone
+    * @returns {*}
+    */
+    static deepClone(source) {
+        // Check if it's a primitive (with exception of function and null, which is typeof object)
+        if (source === null || Util.isPrimitive(source)) return source;
+        if (Array.isArray(source)) {
+            const output = [];
+            for (const value of source) output.push(Util.deepClone(value));
+            return output;
+        }
+        if (Util.isObject(source)) {
+            const output = {};
+            for (const [key, value] of Object.entries(source)) output[key] = Util.deepClone(value);
+            return output;
+        }
+        if (source instanceof Map) {
+            const output = new source.constructor();
+            for (const [key, value] of source.entries()) output.set(key, Util.deepClone(value));
+            return output;
+        }
+        if (source instanceof Set) {
+            const output = new source.constructor();
+            for (const value of source.values()) output.add(Util.deepClone(value));
+            return output;
+        }
+        return source;
+    }
+
+    /**
+    * Sets default properties on an object that aren't already specified.
+    * @param {Object} def Default properties
+    * @param {Object} [given] Object to assign defaults to
+    * @returns {Object}
+    * @private
+    */
+    static mergeDefault(def, given) {
+        if (!given) return Util.deepClone(def);
+        for (const key in def) {
+            if (typeof given[key] === 'undefined') given[key] = Util.deepClone(def[key]);
+            else if (Util.isObject(given[key])) given[key] = Util.mergeDefault(def[key], given[key]);
+        }
+
+        return given;
     }
 }
 

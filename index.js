@@ -4,5 +4,5 @@ module.exports = {
     Basicmap: require('./src/Basicmap'),
     Basicset: require('./src/Basicset'),
     CustomError: require('./src/Error'),
-    Util: require('./src/Util')
+    Util: require('./src/util/Util')
 };
