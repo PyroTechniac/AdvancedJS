@@ -6,9 +6,9 @@ declare module 'AdvancedJS' {
         public message: string;
     }
 
-    
+
     type AdsetGetOptions = {
         value: any;
-        mode?: "strict" | "loose"
-    }
+        mode?: 'strict' | 'loose'
+    };
 }
