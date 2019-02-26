@@ -5,4 +5,10 @@ declare module 'AdvancedJS' {
         public stack: string;
         public message: string;
     }
+
+    
+    type AdsetGetOptions = {
+        value: any;
+        mode?: "strict" | "loose"
+    }
 }
