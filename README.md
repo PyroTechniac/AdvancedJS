@@ -1,5 +1,5 @@
 # AdvancedJS - Advanced JavaScript
-[![Build Status](https://travis-ci.com/PyroTechniac/AdvancedJS.svg?branch=master)](https://travis-ci.com/PyroTechniac/AdvancedJS)
+[![Build Status](https://dev.azure.com/shadowguy224/AdvancedJS/_apis/build/status/PyroTechniac.AdvancedJS?branchName=master)](https://dev.azure.com/shadowguy224/AdvancedJS/_build/latest?definitionId=3&branchName=master)
 [![NPM Version](https://img.shields.io/npm/v/advancedjs.svg?maxAge=3600)](https://www.npmjs.org/pyrotechniac/advancedjs)
 [![NPM Downloads](https://img.shields.io/npm/dt/advancedjs.svg?maxAge=3600)](https://www.npmjs.org/pyrotechniac/advancedjs)
 [![Dependencies](https://img.shields.io/david/pyrotechniac/advancedjs.svg?maxAge=3600)](https://david-dm.org/pyrotechniac/AdvancedJS)
