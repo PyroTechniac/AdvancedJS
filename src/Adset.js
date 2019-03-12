@@ -1,4 +1,4 @@
-const Err = require('./Error');
+const Err = require('./CustomError');
 const fs = require('fs');
 const nextra = require('fs-nextra');
 const path = require('path');

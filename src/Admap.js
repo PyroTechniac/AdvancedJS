@@ -1,4 +1,4 @@
-const Err = require('./Error');
+const Err = require('./CustomError');
 /**
  * An Advanced Map structure with more utility methods
  * @extends {Map}

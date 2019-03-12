@@ -1,4 +1,4 @@
-const Err = require('./Adset');
+const Err = require('./CustomError');
 const Adset = require('./Adset');
 /**
  * A Basicset structure with the same utility methods as {@link Adset}, but can only store Strings and Numbers

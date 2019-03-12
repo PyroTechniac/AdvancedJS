@@ -3,5 +3,5 @@ module.exports = {
     Adset: require('./Adset'),
     Basicmap: require('./Basicmap'),
     Basicset: require('./Basicset'),
-    CustomError: require('./Error')
+    CustomError: require('./CustomError')
 };

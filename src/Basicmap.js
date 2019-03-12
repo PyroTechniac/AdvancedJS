@@ -1,4 +1,4 @@
-const Err = require('./Error');
+const Err = require('./CustomError');
 const Admap = require('./Admap');
 /**
  * A Basicmap structure with the same utility methods as {@link Admap}, but can only have Strings and Numbers as keys
