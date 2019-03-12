@@ -6,7 +6,7 @@
     "scripts": {
         "test": "node ./test/main.js",
         "docs": "node ./docs/build.js",
-        "lint": "eslint src *.js",
+        "lint": "eslint src",
         "lint:fix": "eslint src --fix",
         "travis": "yarn lint && node ./test/build.js",
         "prepublish": "yarn docs && git add -A"
