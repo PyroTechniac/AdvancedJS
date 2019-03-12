@@ -1,4 +1,4 @@
-const { Admap, Adset, Basicmap, Basicset, CustomError } = require('../index');
+const { Admap, Adset, Basicmap, Basicset, CustomError } = require('../src/index');
 const admap = new Admap();
 const adset = new Adset();
 const basicmap = new Basicmap();
